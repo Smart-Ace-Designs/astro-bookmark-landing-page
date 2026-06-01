@@ -12,7 +12,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      exclude: ["astro/runtime/client/dev-toolbar/entrypoint.js"],
+      include: [
+        "astro/virtual-modules/transitions-router.js",
+        "astro/virtual-modules/transitions-types.js",
+        "astro/virtual-modules/transitions-events.js",
+        "astro/virtual-modules/transitions-swap-functions.js",
+      ],
     },
   },
   adapter: netlify(),
