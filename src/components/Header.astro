@@ -39,19 +39,21 @@ import links from "@/data/links";
 </header>
 
 <script>
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const nav = document.getElementById("nav");
+  document.addEventListener("astro:page-load", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const nav = document.getElementById("nav");
 
-  function toggleMenu(forceClose = false) {
-    if (mobileMenu && menuToggle && nav) {
-      const isClosing = forceClose || !mobileMenu.classList.contains("hidden");
-      mobileMenu.classList.toggle("hidden", isClosing);
-      nav.classList.toggle("invisible");
-      document.body.style.overflow = isClosing ? "" : "hidden";
-      menuToggle.setAttribute("aria-expanded", String(!isClosing));
+    function toggleMenu(forceClose = false) {
+      if (mobileMenu && menuToggle && nav) {
+        const isClosing = forceClose || !mobileMenu.classList.contains("hidden");
+        mobileMenu.classList.toggle("hidden", isClosing);
+        nav.classList.toggle("invisible");
+        document.body.style.overflow = isClosing ? "" : "hidden";
+        menuToggle.setAttribute("aria-expanded", String(!isClosing));
+      }
     }
-  }
-  menuToggle?.addEventListener("click", () => toggleMenu());
-  window.addEventListener("close-menu", () => toggleMenu(true));
+    menuToggle?.addEventListener("click", () => toggleMenu());
+    window.addEventListener("close-menu", () => toggleMenu(true));
+  });
 </script>
