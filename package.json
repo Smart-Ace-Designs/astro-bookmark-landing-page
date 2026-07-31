@@ -23,10 +23,5 @@
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1"
-  },
-  "overrides": {
-    "@opentelemetry/core": "^2.8.0",
-    "esbuild": "^0.28.1",
-    "sharp": "^0.35.3"
   }
 }
